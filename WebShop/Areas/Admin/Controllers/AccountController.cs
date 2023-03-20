@@ -63,6 +63,7 @@ namespace WebShop.Areas.Admin.Controllers
                     if (kh == null)
                     {
                         ViewBag.Error = "Thông tin đăng nhập chưa chính xác";
+                        return View(model);
                     }
                     string pass = (model.Password.Trim());
                     // + kh.Salt.Trim()

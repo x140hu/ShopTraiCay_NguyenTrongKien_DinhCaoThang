@@ -16,7 +16,8 @@ using WebShop.Models;
 namespace WebShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
+    [Authorize]
     public class AdminAccountsController : Controller
     {
         private readonly dbMarketsContext _context;

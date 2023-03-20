@@ -63,6 +63,7 @@
     <Folder Include="Views\DonHang\" />
     <Folder Include="Areas\Admin\Views\Account\" />
     <Folder Include="Views\Search\" />
+    <Folder Include="wwwroot\images\shipping\icon\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\page\" />

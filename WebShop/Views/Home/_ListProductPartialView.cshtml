@@ -1,35 +1,59 @@
 ﻿@model List<Product>
 @if (Model != null && Model.Count() > 0)
 {
-<div class="product-item-wrap row">
-    @foreach (var item in Model)
-    {
-        string url = $"/{item.Alias}-{item.ProductId}.html";
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-            <div class="product-item">
-                <div class="product-img img-zoom-effect">
-                    <a href="@url">
-                        <img width="200" height="200" class="img-full" src="~/images/products/@item.Thumb" alt="@item.Title">
-                    </a>
-                    <div class="product-add-action">
-                        <ul>
-                            <li>
-                                <a href="cart.html">
-                                    <i class="pe-7s-cart"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product-content">
-                    <a class="product-name" href="@url">@item.ProductName</a>
-                    <div class="price-box pb-1">
-                        <span class="new-price">@item.Price.Value.ToString("#,##0") VNĐ</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
+<div class="col-lg-12">
 
-</div>
+    
+    <div class="swiper-container product-slider swiper-arrow with-radius border-issue">
+
+        <div class="swiper-wrapper">
+            @foreach (var item in Model)
+            {
+                string url = $"/{item.Alias}-{item.ProductId}.html";
+                <div class="swiper-slide">
+                    <div class="product-item" style="width:320px;min-height:416px;border-radius:5px ">
+                        <div class="product-img img-zoom-effect">
+                            <a>
+                                <img style="height: 288px; width: 320px;" class="img-full" src="~/images/products/@item.Thumb" alt="@item.Title">
+                            </a>
+                            <div class="product-add-action">
+                                <ul>
+                                    <li>
+                                        <a  href="@url">
+                                            <i class="pe-7s-cart"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="rating-box">
+                                <ul>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                </ul>
+                            </div>
+                            <a class="product-name" href="@url" style="font-family:'Roboto', sans-serif; font-weight:700">@item.ProductName</a>
+                            <div class="price-box pb-1">
+                                <span class="new-price" style="font-family:'Nunito Sans', sans-serif; font-size:20px;font-weight:700;color:#80B500">@item.Price.Value.ToString("#,##0") VNĐ</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="swiper-wrap">
+            <div class="swiper-button-next"></div>
+        </div>
+        <div class="swiper-wrap">
+            <div class="swiper-button-prev"></div>
+        </div>
+        
+    </div>
+
+    </div>
 }
